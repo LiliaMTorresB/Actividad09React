@@ -1,0 +1,19 @@
+{
+  "contactos": [
+    {
+      "id": "1",
+      "nombre": "Lily Torres",
+      "telefono": "3113110101",
+      "correo": "lilyt@live.com",
+      "etiqueta": "Family"
+    },
+    {
+      "nombre": "Zadkyela Ruffo",
+      "telefono": "3053053535",
+      "correo": "zadkyff@gmail.com",
+      "etiqueta": "Work",
+      "id": "LcKDVzN5EJ4"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

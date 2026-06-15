@@ -9,8 +9,7 @@ export default function FormularioContacto({ onAgregar }) {
   });
 
   const onChange = (e) => {
-    const { name, value } = e.target;
-    setForm((f) => ({ ...f, [name]: value }));
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const onSubmit = (e) => {
@@ -21,54 +20,79 @@ export default function FormularioContacto({ onAgregar }) {
   };
 
   return (
-    <form onSubmit={onSubmit} className="bg-white shadow-md rounded-lg p-5 flex flex-col gap-4 mb-6">
-      <div>
-        <label className="text-sm font-semibold block mb-1">Nombre *</label>
-        <input
-          name="nombre"
-          value={form.nombre}
-          onChange={onChange}
-          placeholder="Ej: Ana López"
-          className="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-morado bg-white text-black"
-        />
+    <form onSubmit={onSubmit} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 space-y-4 text-left">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* Campo: Nombre */}
+        <div>
+          <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+            Nombre Completo *
+          </label>
+          <input
+            className="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            name="nombre"
+            placeholder="Ej: Lily Torres"
+            value={form.nombre}
+            onChange={onChange}
+            required
+          />
+        </div>
+
+        {/* Campo: Teléfono */}
+        <div>
+          <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+            Teléfono *
+          </label>
+          <input
+            className="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            name="telefono"
+            placeholder="Ej: 3113110101"
+            value={form.telefono}
+            onChange={onChange}
+            required
+          />
+        </div>
       </div>
 
-      <div>
-        <label className="text-sm font-semibold block mb-1">Teléfono *</label>
-        <input
-          name="telefono"
-          value={form.telefono}
-          onChange={onChange}
-          placeholder="Ej: 300 123 4567"
-          className="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-morado bg-white text-black"
-        />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* Campo: Correo */}
+        <div>
+          <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+            Correo Electrónico *
+          </label>
+          <input
+            className="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            name="correo"
+            type="email"
+            placeholder="Ej: lilyt@lice.com"
+            value={form.correo}
+            onChange={onChange}
+            required
+          />
+        </div>
+
+        {/* Campo: Etiqueta */}
+        <div>
+          <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+            Etiqueta (Categoría)
+          </label>
+          <input
+            className="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            name="etiqueta"
+            placeholder="Ej: Family, Trabajo, Estudio"
+            value={form.etiqueta}
+            onChange={onChange}
+          />
+        </div>
       </div>
 
-      <div>
-        <label className="text-sm font-semibold block mb-1">Correo *</label>
-        <input
-          name="correo"
-          value={form.correo}
-          onChange={onChange}
-          placeholder="Ej: ana@sena.edu.co"
-          className="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-morado bg-white text-black"
-        />
+      <div className="pt-2">
+        <button
+          type="submit"
+          className="w-full md:w-auto bg-purple-600 hover:bg-purple-700 text-white font-bold px-6 py-2.5 rounded-xl shadow-sm transition-colors text-sm cursor-pointer"
+        >
+          Agregar contacto
+        </button>
       </div>
-
-      <div>
-        <label className="text-sm font-semibold block mb-1">Etiqueta (opcional)</label>
-        <input
-          name="etiqueta"
-          value={form.etiqueta}
-          onChange={onChange}
-          placeholder="Ej: Trabajo"
-          className="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-morado bg-white text-black"
-        />
-      </div>
-
-      <button className="bg-morado hover:bg-morado-oscuro text-white font-medium py-2 rounded-md transition-colors">
-        Agregar contacto
-      </button>
     </form>
   );
 }

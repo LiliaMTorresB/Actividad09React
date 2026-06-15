@@ -1,24 +1,39 @@
 export default function ContactoCard({ nombre, telefono, correo, etiqueta, onEliminar }) {
   return (
-    <article className="bg-white border rounded-lg shadow-sm p-4 mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-      <div>
-        <h3 className="text-lg font-semibold text-morado-oscuro mb-1">{nombre}</h3>
-        <p className="text-gray-600 text-sm">📞 {telefono}</p>
-        <p className="text-gray-600 text-sm">📧 {correo}</p>
+    <div className="bg-white border border-gray-200 shadow-sm rounded-2xl p-5 flex items-start justify-between text-left transition-all hover:shadow-md">
+      <div className="space-y-1.5 flex-1 pr-4">
+        {/* Nombre en tono morado ADSO */}
+        <h3 className="text-xl font-bold text-purple-900 tracking-tight">{nombre}</h3>
+        
+        {/* Teléfono */}
+        <p className="text-gray-600 text-sm flex items-center gap-2">
+          <span className="text-base">📞</span>
+          <span className="font-medium text-gray-700">{telefono}</span>
+        </p>
+        
+        {/* Correo */}
+        <p className="text-gray-600 text-sm flex items-center gap-2">
+          <span className="text-base">✉️</span>
+          <span className="font-medium text-gray-700 break-all">{correo}</span>
+        </p>
+        
+        {/* Etiqueta Badge (Renderizado Condicional) */}
         {etiqueta && (
-          <span className="inline-block bg-gray-100 text-gray-700 text-xs px-2 py-0.5 rounded mt-1 font-medium">
-            🏷️ {etiqueta}
-          </span>
+          <div className="pt-1">
+            <span className="inline-flex items-center gap-1 bg-gray-100 text-gray-700 text-xs font-bold px-2.5 py-1 rounded-full border border-gray-200">
+              🏷️ {etiqueta}
+            </span>
+          </div>
         )}
       </div>
-      <div className="flex items-center justify-end">
-        <button
-          onClick={() => onEliminar(correo)}
-          className="bg-red-600 hover:bg-red-700 text-white text-sm px-3 py-1.5 rounded-md transition-colors"
-        >
-          Eliminar
-        </button>
-      </div>
-    </article>
+
+      {/* Botón Eliminar */}
+      <button
+        onClick={onEliminar}
+        className="bg-red-500 hover:bg-red-600 text-white font-bold text-xs px-3 py-2 rounded-xl transition-colors shadow-sm cursor-pointer"
+      >
+        Eliminar
+      </button>
+    </div>
   );
 }

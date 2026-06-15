@@ -1,17 +1,12 @@
+/* Importación nativa del motor de Tailwind CSS */
 @import "tailwindcss";
 
-@theme {
-  /* Registramos tus colores institucionales morados del SENA */
-  --color-morado: #7c3aed;
-  --color-morado-oscuro: #5b21b6;
-  
-  /* Registramos TU color personalizado para el fondo general */
-  --color-celeste-pastel: #CBFBF1;
-}
-
+/* Configuración del fondo global personalizado */
 body {
-  /* Aplicamos tu color personalizado al fondo de toda la pantalla */
-  background-color: var(--color-celeste-pastel) !important;
-  color: #1f2937; /* Un gris muy oscuro para que los textos lean perfecto */
-  font-family: var(--font-sans);
+  background-color: #A2F4FD !important;
+  color: #1f2937;
+  font-family: system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
